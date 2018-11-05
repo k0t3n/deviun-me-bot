@@ -12,5 +12,11 @@
     "deviun"
   ],
   "author": "Anton Danilov",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "2.0.1",
+    "lodash": "4.17.11",
+    "telegraf": "3.25.0",
+    "winston": "3.1.0"
+  }
 }
