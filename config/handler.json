@@ -1,0 +1,20 @@
+[
+  {
+    "method": "start",
+    "handler": "start"
+  },
+  {
+    "method": "command",
+    "args": [
+      "suscribe"
+    ],
+    "handler": "suscribe"
+  },
+  {
+    "method": "command",
+    "args": [
+      "unsuscribe"
+    ],
+    "handler": "unsuscribe"
+  }
+]
