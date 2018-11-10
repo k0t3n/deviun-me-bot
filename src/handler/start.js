@@ -6,9 +6,8 @@ const lang = new Lang();
 const ADMIN = config.get('bot.adminId');
 
 module.exports = (ctx) => {
-  const isAdmin = !ctx.from.is_bot && ADMIN === ctx.from.id;
+  const isAdmin = ctx.from.is_admin;
   const isSuscribe = ctx.userCtx.get('suscribe');
-  const message = lang.get(`start.${isAdmin ? 'admin' : 'user'}`);
 
   if (!isAdmin && isSuscribe) {
     const message = lang.get('start.user-suscribe');
@@ -17,6 +16,8 @@ module.exports = (ctx) => {
     const message = lang.get('start.admin-suscribe');
     return ctx.reply(message);
   }
+
+  const message = lang.get(`start.${isAdmin ? 'admin' : 'user'}`);
   
   ctx.reply(message);
 };
