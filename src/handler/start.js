@@ -7,7 +7,16 @@ const ADMIN = config.get('bot.adminId');
 
 module.exports = (ctx) => {
   const isAdmin = !ctx.from.is_bot && ADMIN === ctx.from.id;
+  const isSuscribe = ctx.userCtx.get('suscribe');
   const message = lang.get(`start.${isAdmin ? 'admin' : 'user'}`);
+
+  if (!isAdmin && isSuscribe) {
+    const message = lang.get('start.user-suscribe');
+    return ctx.reply(message);
+  } else if (isAdmin && isSuscribe) {
+    const message = lang.get('start.admin-suscribe');
+    return ctx.reply(message);
+  }
   
   ctx.reply(message);
 };
