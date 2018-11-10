@@ -3,8 +3,20 @@ module.exports = {
     username: '',
     accessToken: '',
     adminId: null,
-    handler: require('./handler')
+    handler: require('./handler'),
+    middleware: require('./middleware')
   },
   lang: require('./lang'),
-  defaultLocale: 'ru'
+  defaultLocale: 'ru',
+  mongodb: {
+    hostname: 'localhost',
+    port: 27017,
+    user: null,
+    password: null,
+    db: null
+  },
+  redis: {
+    hostname: 'localhost',
+    port: 6379
+  }
 };
