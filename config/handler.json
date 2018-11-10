@@ -16,5 +16,12 @@
       "unsuscribe"
     ],
     "handler": "unsuscribe"
+  },
+  {
+    "method": "command",
+    "args": [
+      "send"
+    ],
+    "handler": "send"
   }
 ]
