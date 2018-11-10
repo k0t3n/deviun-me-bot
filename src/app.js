@@ -7,6 +7,13 @@ const LOG = '[app]';
 
 const bot = new Telegraf(ACCESS_TOKEN);
 
+//init middlewares
+for (const middleware of config.get('bot.middleware', [])) {
+  const middlewareCtrl = require(`./middleware/${middleware}`);
+  
+  bot.use(middlewareCtrl);
+}
+
 // init handlers
 for (const handler of config.get('bot.handler', [])) {
   const args = handler.args || [];
