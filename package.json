@@ -4,7 +4,8 @@
   "description": "Deviun.me Telegram Bot",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "nodemon src/app.js",
+    "start": "pm2 start src/app.js"
   },
   "keywords": [
     "telegram",
