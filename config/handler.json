@@ -23,5 +23,10 @@
       "send"
     ],
     "handler": "send"
+  },
+  {
+    "method": "use",
+    "args": [],
+    "handler": "cmd-ctx"
   }
 ]
