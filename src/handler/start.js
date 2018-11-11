@@ -6,14 +6,16 @@ module.exports = (ctx) => {
   const isSuscribe = ctx.userCtx.get('suscribe');
 
   if (!isAdmin && isSuscribe) {
-    const message = lang.get('start.user-suscribe');
-    return ctx.reply(message);
+    return ctx.reply(
+      lang.get('start.user-suscribe')
+    );
   } else if (isAdmin && isSuscribe) {
-    const message = lang.get('start.admin-suscribe');
-    return ctx.reply(message);
+    return ctx.reply(
+      lang.get('start.admin-suscribe')
+    );
   }
-
-  const message = lang.get(`start.${isAdmin ? 'admin' : 'user'}`);
   
-  ctx.reply(message);
+  ctx.reply(
+    lang.get(`start.${isAdmin ? 'admin' : 'user'}`)
+  );
 };

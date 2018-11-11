@@ -16,8 +16,9 @@ module.exports = async (ctx) => {
   const isSuscribe = ctx.userCtx.get('suscribe');
 
   if (!isSuscribe) {
-    const message = lang.get('unsuscribe.not-suscribe');
-    return ctx.reply(message);
+    return ctx.reply(
+      lang.get('unsuscribe.not-suscribe')
+    );
   }
 
   await promise.all([
@@ -33,8 +34,7 @@ module.exports = async (ctx) => {
   ]);
 
   ctx.userCtx.set('suscribe', false);
-
-  const message = lang.get('unsuscribe.done');
-
-  ctx.reply(message);
+  ctx.reply(
+    lang.get('unsuscribe.done')
+  );
 };

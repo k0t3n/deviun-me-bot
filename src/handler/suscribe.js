@@ -16,8 +16,9 @@ module.exports = async (ctx) => {
   const isSuscribe = ctx.userCtx.get('suscribe');
 
   if (isSuscribe) {
-    const message = lang.get('suscribe.is-suscribe');
-    return ctx.reply(message);
+    return ctx.reply(
+      lang.get('suscribe.is-suscribe')
+    );
   }
 
   await promise.all([
@@ -36,8 +37,7 @@ module.exports = async (ctx) => {
   ]);
 
   ctx.userCtx.set('suscribe', true);
-
-  const message = lang.get('suscribe.done');
-
-  ctx.reply(message);
+  ctx.reply(
+    lang.get('suscribe.done')
+  );
 };

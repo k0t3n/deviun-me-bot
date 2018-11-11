@@ -7,15 +7,16 @@ module.exports = (ctx) => {
   }
 
   if (ctx.userCtx.get('cmd-ctx')) {
-    const message = lang.get('send.already-input');
-    return ctx.reply(message);
+    return ctx.reply(
+      lang.get('send.already-input')
+    );
   }
-
-  const message = lang.get('send.before');
 
   ctx.userCtx.set('cmd-ctx', {
     name: 'send',
     step: 'input'
   });
-  ctx.reply(message);
+  ctx.reply(
+    lang.get('send.before')
+  );
 };
