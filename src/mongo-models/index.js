@@ -45,5 +45,22 @@ module.exports = {
       },
       required: ['action', 'user_id', 'timestamp']
     }
+  },
+  broadcast: {
+    $jsonSchema: {
+      bsonType: 'object',
+      properties: {
+        ...props(
+          'user_id',
+          'timestamp'
+        ),
+        msg_array: {
+          type: 'array',
+          minItems: 1,
+          maxItems: 35 // gt of limit
+        }
+      },
+      required: ['user_id', 'timestamp', 'msg_array']
+    }
   }
 };
