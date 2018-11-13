@@ -20,6 +20,7 @@
     "config": "2.0.1",
     "just-mongo": "2.1.8",
     "lodash": "4.17.11",
+    "node-cron": "2.0.3",
     "redis": "2.8.0",
     "redis-commands": "1.4.0",
     "telegraf": "3.25.0",
