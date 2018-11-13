@@ -15,6 +15,7 @@
   "author": "Anton Danilov",
   "license": "ISC",
   "dependencies": {
+    "action-flow": "2.1.0",
     "bluebird": "3.5.3",
     "config": "2.0.1",
     "just-mongo": "2.1.8",
