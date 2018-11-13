@@ -5,7 +5,7 @@ class Daemon {
     this.scheduledTime = scheduledTime;
 
     this.worker = cron.schedule(
-      this.scheduledTime, this.task,
+      this.scheduledTime, this.task.bind(this),
       {
         scheduled: false
       }
