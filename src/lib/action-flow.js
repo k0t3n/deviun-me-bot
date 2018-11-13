@@ -3,7 +3,8 @@
  */
 
 const AF = require('action-flow')({
-  driverName: 'process'
+  driverName: 'process',
+  awaitTimeoutSec: 18000 // 5 hours
 });
 
 module.exports = AF;
