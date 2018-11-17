@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "deviun-bot",
+      "script": "./src/app.js",
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "broadcast-daemon",
+      "script": "./src/daemons/sender-daemon.js",
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
