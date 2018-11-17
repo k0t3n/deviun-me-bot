@@ -1,0 +1,32 @@
+[
+  {
+    "method": "start",
+    "handler": "start"
+  },
+  {
+    "method": "command",
+    "args": [
+      "suscribe"
+    ],
+    "handler": "suscribe"
+  },
+  {
+    "method": "command",
+    "args": [
+      "unsuscribe"
+    ],
+    "handler": "unsuscribe"
+  },
+  {
+    "method": "command",
+    "args": [
+      "send"
+    ],
+    "handler": "send"
+  },
+  {
+    "method": "use",
+    "args": [],
+    "handler": "cmd-ctx"
+  }
+]
