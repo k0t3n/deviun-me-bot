@@ -2,6 +2,8 @@ const Lang = require('../lib/lang');
 const mongo = require('../lib/mongodb');
 const actions = require('../module/actions');
 const promise = require('bluebird');
+const notify = require('../module/admin-notifications');
+const getSender = require('../util/get-sender');
 
 const lang = new Lang();
 const suscribersModel = mongo.collection('suscribers');
@@ -12,7 +14,8 @@ module.exports = async (ctx) => {
     first_name: firstName,
     last_name: lastName,
     username
-  } = ctx.from;
+  } = getSender(ctx);
+  const fullName = [firstName, lastName].join(' ');
   const isSuscribe = ctx.userCtx.get('suscribe');
 
   if (isSuscribe) {
@@ -20,6 +23,8 @@ module.exports = async (ctx) => {
       lang.get('suscribe.is-suscribe')
     );
   }
+
+  const suscribersCount = await suscribersModel.count() + 1;
 
   await promise.all([
     suscribersModel.insert({
@@ -31,9 +36,16 @@ module.exports = async (ctx) => {
     actions.create({
       action: 'suscribe',
       userId,
-      fullName: [firstName, lastName].join(' '),
+      fullName,
       username
-    })
+    }),
+    notify.send(
+      lang.get('notification.suscribe', {
+        fullName,
+        username,
+        suscribersCount
+      })
+    )
   ]);
 
   ctx.userCtx.set('suscribe', true);
