@@ -3,7 +3,9 @@ const lang = new Lang();
 
 module.exports = (ctx) => {
   if (!ctx.from.is_admin) {
-    return;
+      return ctx.reply(
+          lang.get('send.access-denied')
+      );
   }
 
   if (ctx.userCtx.get('cmd-ctx')) {
