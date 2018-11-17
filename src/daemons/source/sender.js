@@ -4,6 +4,10 @@ const log = require('../../lib/log');
 const af = require('../../lib/action-flow');
 const promise = require('bluebird');
 const telegram = require('../../module/telegram');
+const notify = require('../../module/admin-notifications');
+const Lang = require('../../lib/lang');
+
+const lang = new Lang();
 
 const LOG = '[daemons/sender]';
 const SUSCRIBERS_LIMIT = 30; // 10 people
@@ -48,6 +52,7 @@ class Sender extends Daemon {
   async sendToSuscribers(task) {
     let suscribersChunk = [];
     let offset = 0;
+    const suscribersCount = await suscribers.count(); 
 
     do {
       suscribersChunk = await suscribers.find(null, {
@@ -61,6 +66,8 @@ class Sender extends Daemon {
       offset = suscribersChunk.length;
 
       await this.broadcastMessages(task, suscribersChunk);
+
+      offset > 0 && await this.sendProgress(offset, suscribersCount);
     } while (suscribersChunk.length);
   }
 
@@ -75,6 +82,15 @@ class Sender extends Daemon {
       await promise.all(asyncArr);
       await promise.delay(1000);
     }
+  }
+
+  async sendProgress(sent, all) {
+    await notify.send(
+      lang.get('notification.broadcast-status', {
+        sent,
+        all
+      })
+    );
   }
 }
 
