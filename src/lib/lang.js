@@ -25,7 +25,7 @@ class Lang {
       log.info(`${LOG} data is not found by path.`, path, JSON.parse(parseData || {}));
     }
 
-    return parseData ? template(data, parseData) : data;
+    return parseData ? template(data)(parseData) : data;
   }
 }
 
