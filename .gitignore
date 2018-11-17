@@ -5,3 +5,4 @@ config/stage*
 .DS_Store
 package-*
 npm-*
+log
