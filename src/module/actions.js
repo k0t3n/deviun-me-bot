@@ -1,6 +1,6 @@
 const mongo = require('../lib/mongodb');
 
-const actionModels = mongo.collection('actions');
+const actionModel = mongo.collection('actions');
 
 class Actions {
   static create({
@@ -9,7 +9,7 @@ class Actions {
     fullName,
     username,
   }) {
-    return actionModels.insert({
+    return actionModel.insert({
       action,
       user_id: userId,
       full_name: fullName,
