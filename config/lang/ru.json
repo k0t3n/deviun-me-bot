@@ -26,5 +26,10 @@
   },
   "dont-understand": "Я не в курсе, чего тебе надо.",
   "server-error": "Сервер приболел. Напиши @deviun чтобы починил.",
-  "unexpected-content": "Я ожидал чего-то другого. Ну серьезно, давай нормально."
+  "unexpected-content": "Я ожидал чего-то другого. Ну серьезно, давай нормально.",
+  "notification": {
+    "suscribe": "Новая подписка! <%= fullName %>. @<%= username %>. Подписчиков: <%= suscribersCount %>",
+    "unsuscribe": "Какой-то чел отписался. Пожелаем ему всего хорошего!\n\n<%= fullName %>. @<%= username %>. Подписчиков: <%= suscribersCount %>",
+    "broadcast-status": "Статус рассылки: <%= sent %>/<%= all %>"
+  }
 }
