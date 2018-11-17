@@ -6,6 +6,9 @@ module.exports = {
     handler: require('./handler'),
     middleware: require('./middleware')
   },
+  notificationChannel: {
+    id: 0
+  },
   lang: require('./lang'),
   defaultLocale: 'ru',
   mongodb: {
